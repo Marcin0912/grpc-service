@@ -2,11 +2,11 @@ SHELL := /bin/zsh
 
 include grpc-config.mk
 
-#create PHONY command up
+
 up:
 	@echo "[${MS_GREEN}Starting up containers${MS_NC}]" && docker-compose up -d
 
-#create PHONY command down
+
 down:
 	@echo "[${MS_GREEN}Stopping containers${MS_NC}]" &&  docker-compose down
 
