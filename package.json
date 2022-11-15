@@ -1,0 +1,14 @@
+{
+  "name": "node-grpc-prisma",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "m sy <computerapi@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.7.3",
+    "@grpc/proto-loader": "^0.7.3"
+  }
+}
