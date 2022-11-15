@@ -1,11 +1,27 @@
+SHELL := /bin/zsh
+
+include grpc-config.mk
+
 #create PHONY command up
-.PHONY: up
 up:
-	docker-compose up -d
+	@echo "[${MS_GREEN}Starting up containers${MS_NC}]" && docker-compose up -d
 
 #create PHONY command down
-.PHONY: down
 down:
-	docker-compose down
+	@echo "[${MS_GREEN}Stopping containers${MS_NC}]" &&  docker-compose down
+
+
+# generate the TypeScript from proto files
+.PHONY: build
+build: check_file_existence
+	@echo -e "[${MS_GREEN}Building the TypeScript files${MS_NC}]"
+	@chmod +x proto-gen.sh && ./proto-gen.sh;
+	@echo -e "[${MS_GREEN}Done Building the TypeScript files${MS_NC}]"
+
+
+# if file doesn't exist exit
+check_file_existence:
+	@test -f proto-gen.sh || (echo -e "[${MS_RED}proto-gen.sh file does not exist${MS_NC}]" && exit 1)
+
 
 
