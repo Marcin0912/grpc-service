@@ -4,6 +4,9 @@ import * as protoLoader from '@grpc/proto-loader';
 import { ProtoGrpcType } from '../pb/services';
 import customConfig from '../server/config/default';
 
+const randomEmail = require('random-email');
+
+
 const options: protoLoader.Options = {
     keepCase: true,
     longs: String,
@@ -45,7 +48,8 @@ function signUpUser() {
         client.SignUpUser(
             {
                 name: 'Admin',
-                email: 'admin@admin.com',
+                // email: 'admin@admin.com',
+                email: randomEmail({domain: 'example.com'}),
                 password: 'password123',
                 passwordConfirm: 'password123',
                 photo: 'default.png',

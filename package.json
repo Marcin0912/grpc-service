@@ -17,6 +17,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "jsonwebtoken": "^8.5.1",
+    "random-email": "^1.0.3",
     "redis": "^4.5.0",
     "ts-node-dev": "^2.0.0"
   },
