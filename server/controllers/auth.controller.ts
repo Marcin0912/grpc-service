@@ -19,11 +19,12 @@ import customConfig from '../config/default';
 import redisClient from '../utils/connectRedis';
 // import { VerifyEmailInput__Output } from '../../pb/auth/VerifyEmailInput';
 import { GenericResponse } from '../../pb/auth/GenericResponse';
+import {sendUnaryData, ServerUnaryCall} from "@grpc/grpc-js";
 // import Email from '../utils/email';
 
 export const registerHandler = async (
-    req: grpc.ServerUnaryCall<SignUpUserInput__Output, SignUpUserResponse>,
-    res: grpc.sendUnaryData<GenericResponse>
+    req: ServerUnaryCall<SignUpUserInput__Output, SignUpUserResponse>,
+    res: sendUnaryData<SignUpUserResponse>
 ) => {
     try {
         const hashedPassword = await bcrypt.hash(req.request.password, 12);

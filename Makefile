@@ -25,6 +25,14 @@ build: check_file_existence
 	@chmod +x proto-gen.sh && ./proto-gen.sh;
 	@echo -e "[${MS_GREEN}Done Building the TypeScript files${MS_NC}]"
 
+runserver:
+	@echo -e "[${MS_GREEN}Starting server...${MS_NC}]"
+	@npm run start:server
+
+
+runclient:
+	@echo -e "[${MS_GREEN}Starting client...${MS_NC}]"
+	@npm run start:client
 
 # if file doesn't exist exit
 check_file_existence:

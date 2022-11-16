@@ -14,7 +14,7 @@ services:
     image: redis:latest
     container_name: grpc-redis
     ports:
-      - '6379:6380'
+      - '6380:6379'
     volumes:
       - grpc-redis:/data
 volumes:
