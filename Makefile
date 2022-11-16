@@ -2,6 +2,13 @@ SHELL := /bin/zsh
 
 include grpc-config.mk
 
+migratedb:
+	@echo "[${MS_GREEN}Migrating database...${MS_NC}]" && \
+    npm run db:migrate
+
+pushdb:
+	@echo "[${MS_GREEN}Pushing database...${MS_NC}]" && \
+	npm run db:push
 
 up:
 	@echo "[${MS_GREEN}Starting up containers${MS_NC}]" && docker-compose up -d
